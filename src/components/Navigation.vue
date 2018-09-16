@@ -2,12 +2,12 @@
     <div id="navgation">
         <nav class="fullPage" :class="navClass">
             <ul class="clearfix">
-                <li>关于</li>
+                <li><router-link to="about">关于</router-link></li>
                 <li>生活</li>
                 <li>读书</li>
                 <li>资源</li>
                 <li>博客</li>
-                <li>首页</li>
+                <li><router-link to="home">首页</router-link></li>
             </ul>
         </nav>
         
@@ -59,8 +59,8 @@ export default {
         background: #33363B;
         z-index: 999;
         ul { 
-            max-width: 1200px;
-            margin:  0 auto;
+            // max-width: 1200px;
+            // margin:  0 auto;
             li {
                 color: #fff;
                 font-size: 14px;
@@ -68,6 +68,9 @@ export default {
                 padding: 10px 15px;
                 line-height: 30px;
                 cursor: pointer;
+                a {
+                    color: #fff;
+                }
                 &:hover {
                     transform: scale(1.3);
                     transition: transform .3s;

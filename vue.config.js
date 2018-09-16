@@ -9,8 +9,12 @@ module.exports = {
 		config
 			.entry('app')
 				.add("whatwg-fetch")
+				.add("@babel/polyfill")
 				.end()
 			.resolve.alias
 				.set('Util', resolve('src/util'))
+	},
+	devServer: {
+		port: 8888
 	}
 }

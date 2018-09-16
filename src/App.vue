@@ -36,10 +36,13 @@ export default {
 			color: #f1f1f1;
 			font-size: 16px;
 			line-height: 100px;
-			max-width: 1200px;
+			// max-width: 1200px;
 			margin: 0 auto;
 			position: relative;
 		}
+	}
+	.container {
+		padding-top: 50px;
 	}
 }
 </style>
