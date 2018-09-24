@@ -6,7 +6,7 @@
                 <li>生活</li>
                 <li>读书</li>
                 <li>资源</li>
-                <li>博客</li>
+                <li><router-link to="blog">博客</router-link></li>
                 <li><router-link to="home">首页</router-link></li>
             </ul>
         </nav>
@@ -59,8 +59,8 @@ export default {
         background: #33363B;
         z-index: 999;
         ul { 
-            // max-width: 1200px;
-            // margin:  0 auto;
+            max-width: 1200px;
+            margin:  0 auto;
             li {
                 color: #fff;
                 font-size: 14px;
