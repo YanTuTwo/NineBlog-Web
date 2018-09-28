@@ -1,14 +1,13 @@
 <template>
     <div id="blog">
-        <!-- 博客面板 -->
         <el-container class="pageCenter">
             <el-main>
-                <el-card shadow="hover" class="articleItem" v-for="item in 10">
+                <el-card shadow="hover" class="articleItem" v-for="item in 10" :key="item">
                     <h2 class="item-titile">第一次搭建博客有感</h2>
                     <div class="item-summary">一个有那么点爱摄影的前端打字员，为了克制自己的懒惰而建立的一个个人网站。如果你有点兴趣的话，你随便看~一个有那么点爱摄影的前端打字员，为了克制自己的懒惰而建立的一个个人网站。如果你有点兴趣的话，你随便看~一个有那么点爱摄影的前端打字员，为了克制自己的懒惰而建立的一个个人网站。如果你有点兴趣的话，你随便看~一个有那么点爱摄影的前端打字员，为了克制自己的懒惰而建立的一个个人网站。如果你有点兴趣的话，你随便看~</div>
                     <div class="item-info">
                         <span class="el-icon-time"></span>2018-9-22
-                        <span class=""></span>9
+                        <span class=""></span>{{item}}
                         <span class="el-icon-view"></span>9
                     </div>
                 </el-card>
@@ -26,25 +25,7 @@
     </div>
 </template>
 <script>
-export default {
-    data() {
-        return {
-
-        }
-    },
-    components:{
-
-    },
-    methods:{
-        
-    },
-    mounted() {
-
-    },
-    destroyed() {
-
-    }
-}
+export default {};
 </script>
 <style lang="scss" scoped>
 #blog {

@@ -65,58 +65,62 @@
     </div>
 </template>
 <script>
-import InitTime from '../plugins/time'
-import Carousel from '../plugins/carousel'
+import InitTime from '../plugins/time';
+// import Carousel from '../plugins/carousel';
 export default {
     data() {
         return {
-            article: '',
-        }
+            article: ''
+        };
     },
-    components:{
-
-    },
+    components: {},
     computed: {
         starttime() {
             let starttime = {};
-            let overdate = new Date().getTime() - new Date('2017-07-14 08:53:00').getTime();
-            starttime.year = parseInt(overdate/1000/60/60/24/365);
-            starttime.month = parseInt(overdate%(1000*60*60*24*365)/(1000*60*60*24*30));
-            starttime.day = parseInt(overdate%(1000*60*60*24*365)%(1000*60*60*24*30)/(1000*60*60*24));
-            starttime.hour = parseInt(overdate/1000%(3600*24)/3600);
-            starttime.minute = parseInt(overdate/1000%3600/60);
-            starttime.second = parseInt(overdate/1000%60);
+            let overdate =
+                new Date().getTime() -
+                new Date('2017-07-14 08:53:00').getTime();
+            starttime.year = parseInt(overdate / 1000 / 60 / 60 / 24 / 365);
+            starttime.month = parseInt(
+                (overdate % (1000 * 60 * 60 * 24 * 365)) /
+                    (1000 * 60 * 60 * 24 * 30)
+            );
+            starttime.day = parseInt(
+                ((overdate % (1000 * 60 * 60 * 24 * 365)) %
+                    (1000 * 60 * 60 * 24 * 30)) /
+                    (1000 * 60 * 60 * 24)
+            );
+            starttime.hour = parseInt(((overdate / 1000) % (3600 * 24)) / 3600);
+            starttime.minute = parseInt(((overdate / 1000) % 3600) / 60);
+            starttime.second = parseInt((overdate / 1000) % 60);
             return starttime;
         }
     },
-    methods:{
+    methods: {
         initData() {
-			let url = '/api/getmd';
-			let param = {
-				name: 'zhangjunjie',
-				age: 14
-			}
-			let headers = new Headers({
-				'Content-Type': 'text/plain'
-			})
-			Util.get(url,param,headers).then((req) => {
-				// console.log(req);
-				this.article = req;
-			})
+            let url = '/api/getmd';
+            let param = {
+                name: 'zhangjunjie',
+                age: 14
+            };
+            let headers = new Headers({
+                'Content-Type': 'text/plain'
+            });
+            Util.get(url, param, headers).then((req) => {
+                // console.log(req);
+                this.article = req;
+            });
         }
     },
     mounted() {
         // this.initData();
         this.$nextTick(() => {
-            
             InitTime(26, 24, 16, 26, 3, this.starttime);
             // Carousel.init('carousel');
-        })
+        });
     },
-    destroyed() {
-
-    }
-}
+    destroyed() {}
+};
 </script>
 <style lang="scss" scoped>
 #time {
@@ -147,7 +151,7 @@ export default {
         margin-top: 50px;
         height: 450px;
         width: 100%;
-        background: #33363B;
+        background: #33363b;
         p {
             font-size: 30px;
             color: #fff;
@@ -163,20 +167,20 @@ export default {
         }
         .el-card {
             cursor: pointer;
-            // margin-bottom: 40px; 
+            // margin-bottom: 40px;
             color: #666;
             .tip {
                 // text-indent: 20px;
-                margin-top: 10px; 
+                margin-top: 10px;
                 font-size: 12px;
-                overflow : hidden;
+                overflow: hidden;
                 text-overflow: ellipsis;
                 display: -webkit-box;
                 -webkit-line-clamp: 1;
                 -webkit-box-orient: vertical;
             }
             &:hover {
-                box-shadow: 0 2px 20px 0 rgba(0,0,0,0.4);
+                box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.4);
             }
         }
         .blobhead {
@@ -231,7 +235,6 @@ export default {
                 }
             }
         }
-
     }
     .photography {
         position: relative;
@@ -242,13 +245,13 @@ export default {
         background-size: cover;
         // -webkit-filter: blur(2px); /* Chrome, Opera */
         // -moz-filter: blur(2px);
-        // -ms-filter: blur(2px);    
+        // -ms-filter: blur(2px);
         // filter: blur(2px);
         &::after {
             position: absolute;
             top: 0;
             left: 0;
-            content: "";
+            content: '';
             background-color: #000;
             opacity: 0.8;
             z-index: 1;
@@ -257,41 +260,42 @@ export default {
         }
     }
     .resource {
-        .slider{
-			height: 700px;
-			position: relative;
-		}
-		.slider li{
-			list-style: none;
-			position: absolute;
-			left:200px;
-			top:0;
-		}
-		.slider li img{
-			width: 100%;	
-			display: block;			
-		}
-		.arrow{
-			opacity: 1;
-		}
-		.prev,.next{
-			width: 60px;
-			height: 60px;
-			position: absolute;
-			top:50%;
-			margin-top:-30px;
-            z-index:99;
+        .slider {
+            height: 700px;
+            position: relative;
+        }
+        .slider li {
+            list-style: none;
+            position: absolute;
+            left: 200px;
+            top: 0;
+        }
+        .slider li img {
+            width: 100%;
+            display: block;
+        }
+        .arrow {
+            opacity: 1;
+        }
+        .prev,
+        .next {
+            width: 60px;
+            height: 60px;
+            position: absolute;
+            top: 50%;
+            margin-top: -30px;
+            z-index: 99;
             border-radius: 10px;
             cursor: pointer;
-		}
-		.next{
-			right:-60px;
+        }
+        .next {
+            right: -60px;
             border-top: 10px solid #999;
             border-right: 10px solid #999;
             transform: rotate(45deg);
-		}
-		.prev{
-            left:-60px;
+        }
+        .prev {
+            left: -60px;
             border-top: 10px solid #999;
             border-left: 10px solid #999;
             transform: rotate(-45deg);

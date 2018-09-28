@@ -10,7 +10,11 @@
 </template>
 <script>
 export default {
-
+    data() {
+        return {
+            hah: ''
+        };
+    }
 };
 </script>
 <style lang="scss" scoped>

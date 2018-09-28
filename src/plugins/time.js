@@ -1,4 +1,4 @@
-// time handle
+/* eslint-disable */
 function initTime(textWid, fontSize, numWidth, numHeight, lineWidth, starttime) {
 	window.timeObj = starttime;
 	var time = document.getElementById('time');

@@ -15,6 +15,11 @@ module.exports = {
 				.set('Util', resolve('src/util'))
 	},
 	devServer: {
-		port: 8888
-	}
+		port: 8888,
+		overlay: {
+			warnings: true,
+			errors: true
+		}
+	},
+	lintOnSave: 'error'
 }
