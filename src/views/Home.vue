@@ -10,7 +10,7 @@
             <div class="blobhead clearfix">
                 <div class="myname">Nine</div>
                 <div class="introduction">一个有那么点爱摄影的前端打字员，为了克制自己的懒惰而建立的一个个人网站。<br>如果你有点兴趣的话，你随便看~</div>
-            </div>
+            </div> 
             <el-row  :gutter="40">
                 <el-col :span="index == 0 || index == 3 ? 8 : 16" v-for="(o, index) in 4" :key="o">
                     <el-card :body-style="{ padding: '0px' }">

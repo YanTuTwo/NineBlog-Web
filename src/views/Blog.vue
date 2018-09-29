@@ -2,34 +2,56 @@
     <div id="blog">
         <el-container class="pageCenter">
             <el-main>
-                <el-card shadow="hover" class="articleItem" v-for="item in 10" :key="item">
-                    <h2 class="item-titile">第一次搭建博客有感</h2>
+                <el-card shadow="hover" class="articleItem" v-for="item in defaultCount" :key="item">
+                    <h2 class="item-titile">感感感感有感</h2>
                     <div class="item-summary">一个有那么点爱摄影的前端打字员，为了克制自己的懒惰而建立的一个个人网站。如果你有点兴趣的话，你随便看~一个有那么点爱摄影的前端打字员，为了克制自己的懒惰而建立的一个个人网站。如果你有点兴趣的话，你随便看~一个有那么点爱摄影的前端打字员，为了克制自己的懒惰而建立的一个个人网站。如果你有点兴趣的话，你随便看~一个有那么点爱摄影的前端打字员，为了克制自己的懒惰而建立的一个个人网站。如果你有点兴趣的话，你随便看~</div>
                     <div class="item-info">
                         <span class="el-icon-time"></span>2018-9-22
-                        <span class=""></span>{{item}}
+                        <!-- <span class=""></span>{{item}} -->
                         <span class="el-icon-view"></span>9
                     </div>
                 </el-card>
-                <div>加载更多~~~~</div>
+                <div v-if="moreBtn" class="moreBtn" @click="loadMore"><span class="el-icon-caret-bottom"></span>加载更多~~~~</div>
             </el-main>
-            <el-aside width="320px">
+            <el-aside width="280px">
                 <el-card shadow="always" class="articleItem">
                     文章分档
                 </el-card>
                 <el-card shadow="always" class="articleItem">
-                    精彩推荐
+                    精彩推荐精彩推荐
                 </el-card>
             </el-aside>
         </el-container>
     </div>
 </template>
 <script>
-export default {};
+export default {
+    data() {
+        return {
+            defaultCount: 11
+        };
+    },
+    computed: {
+        moreBtn() {
+            return this.defaultCount > 10 ? true : false;
+        }
+    },
+    methods: {
+        loadMore() {
+            console.log('发请求');
+        }
+    }
+};
 </script>
 <style lang="scss" scoped>
 #blog {
     background: #fff;
+    .moreBtn {
+        text-align: center;
+        color: #999;
+        font-size: 14px;
+        cursor: pointer;
+    }
 }
 .articleItem {
     width: 100%;
@@ -57,7 +79,7 @@ export default {};
         color: #999;
         span {
             margin-right: 5px;
-            margin-right: 20px;
+            margin-left: 10px;
         }
     }
 }
