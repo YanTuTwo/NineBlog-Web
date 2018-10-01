@@ -1,6 +1,6 @@
 <template>
-    <div id="base">
-        <!-- 基本模板 -->
+    <div id="articleDetails">
+        articleDetails
     </div>
 </template>
 <script>

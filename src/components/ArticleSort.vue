@@ -1,6 +1,8 @@
 <template>
-    <div id="base">
-        <!-- 基本模板 -->
+    <div id="articlleSort">
+        <el-card shadow="always" class="articleItem">
+            文章分档
+        </el-card>
     </div>
 </template>
 <script>

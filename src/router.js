@@ -4,6 +4,7 @@ import Router from 'vue-router';
 import Home from './views/Home.vue';
 import About from './views/About.vue';
 import Blog from './views/Blog.vue';
+import ArticleDetails from './views/ArticleDetails.vue';
 
 Vue.use(Router);
 
@@ -12,8 +13,7 @@ export default new Router({
     routes: [
         {
             path: '/',
-            name: 'home',
-            component: Home
+            redirect: { name: 'home' }
         },
         {
             path: '/home',
@@ -29,6 +29,11 @@ export default new Router({
             path: '/blog',
             name: 'blog',
             component: Blog
+        },
+        {
+            path: '/articleDetails',
+            name: 'articleDetails',
+            component: ArticleDetails
         }
         // {
         //   path: "/about",

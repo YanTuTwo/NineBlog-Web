@@ -1,6 +1,8 @@
 <template>
-    <div id="base">
-        <!-- 基本模板 -->
+    <div id="Recommend">
+        <el-card shadow="always" class="articleItem">
+            精彩推荐精彩推荐
+        </el-card>
     </div>
 </template>
 <script>
