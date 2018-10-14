@@ -13,7 +13,6 @@ function initTime(textWid, fontSize, numWidth, numHeight, lineWidth, starttime) 
 	front.style.left = '0';
 	time.appendChild(back);
 	time.appendChild(front);
-	console.log(time.offsetHeight);
 	front.width = back.width = time.offsetWidth * ratio;
 	front.height = back.height = time.offsetHeight * ratio;
 	frontCtx.strokeStyle = color;
@@ -78,7 +77,6 @@ function initTime(textWid, fontSize, numWidth, numHeight, lineWidth, starttime) 
 				break;
 			}
 		}
-
 		drawText(window.timeObj);
 	}
 

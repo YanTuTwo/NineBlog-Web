@@ -2,12 +2,7 @@
     <div id="navgation">
         <nav class="fullPage" :class="navClass">
             <ul class="clearfix">
-                <li><router-link to="home">首页</router-link></li>
-                <li><router-link to="blog">博客</router-link></li>
-                <li>资源</li>
-                <li>读书</li>
-                <li>生活</li>
-                <li><router-link to="about">关于</router-link></li>
+                <li v-for="(item,key) in navigation" :key="key"><router-link :to="key">{{item}}</router-link></li>
             </ul>
         </nav>
         
@@ -18,7 +13,15 @@ export default {
     data() {
         return {
             scrollTop: '',
-            isfullPage: false
+            isfullPage: false,
+            navigation: {
+                home: '首页',
+                blog: '博客',
+                resource: '资源',
+                reading: '读书',
+                life: '生活',
+                about: '关于'
+            }
         };
     },
     watch: {},
@@ -69,12 +72,14 @@ export default {
                 font-size: 14px;
                 // float: right;
                 display: inline-block;
-                padding: 10px 15px;
                 line-height: 30px;
                 transition: 0.2s all linear;
                 cursor: pointer;
                 a {
+                    padding: 10px 15px;
                     color: #fff;
+                    display: inline-block;
+                    text-align: center;
                 }
             }
         }

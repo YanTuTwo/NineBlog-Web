@@ -21,8 +21,8 @@
     </div>
 </template>
 <script>
-import ArticleSort from '../components/ArticleSort';
-import Recommend from '../components/Recommend';
+import ArticleSort from '@/components/ArticleSort';
+import Recommend from '@/components/Recommend';
 export default {
     data() {
         return {
@@ -57,7 +57,7 @@ export default {
             console.log('dianji');
             this.$router.push({
                 name: 'articleDetails',
-                params: { articleId: id }
+                query: { articleId: id }
             });
         }
     }

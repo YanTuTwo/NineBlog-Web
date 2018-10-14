@@ -2,7 +2,8 @@
 	<div id="app">
 		<Navigation></Navigation>	
 		<div class="container">
-			<router-view/>
+            <div v-if="invalidRoute" class="fourAndFour">404</div>
+			<router-view v-else/>
 		</div>
 		<footer>
 			<p>你有多自律，就有多自由。</p>
@@ -16,10 +17,14 @@ export default {
     name: 'App',
     components: {
         Navigation
+    },
+    computed: {
+        invalidRoute() {
+            return !this.$route.matched || this.$route.matched.length === 0;
+        }
     }
 };
 </script>
-
 <style lang="scss" scoped>
 #app {
     // max-width: 1200px;
@@ -43,6 +48,14 @@ export default {
     }
     .container {
         padding-top: 50px;
+    }
+    .fourAndFour {
+        width: 100%;
+        font-size: 100px;
+        color: #333;
+        text-align: center;
+        height: 600px;
+        line-height: 600px;
     }
 }
 </style>

@@ -5,7 +5,6 @@
                 <P>你有多自律，就有多自由。</P>
             </div>
         </header>
-        <!-- <div class="markdown-body" v-html="article"></div> -->
         <div class="pageCenter blob">
             <div class="blobhead clearfix">
                 <div class="myname">Nine</div>
@@ -14,7 +13,7 @@
             <el-row  :gutter="40">
                 <el-col :span="index == 0 || index == 3 ? 8 : 16" v-for="(o, index) in 4" :key="o">
                     <el-card :body-style="{ padding: '0px' }">
-                        <img src="http://193.112.95.221:9999/images/avatarimg/dsad.png" class="image" style="width:100%;height:250px;display:block">
+                        <img v-lazy="'http://localhost:3000/static/images/'+index+'.jpg'" class="image" style="width:100%;height:250px;display:block">
                         <div style="padding: 14px;">
                             <h4>第一次搭建博客有感</h4>
                             <p class="tip">一个有那么点爱摄影的前端打字员，为了克制自己的懒惰而建立的一个个人网站。如果你有点兴趣的话，你随便看~</p>
@@ -25,7 +24,7 @@
             <div class="blobmore clearfix">
                 <div class="morebtn pull-left">
                     <p>更多文章等待着你来探讨<span>喔~</span></p>
-                    <el-button type="primary" plain>View more &gt;&gt;</el-button>
+                    <el-button type="primary" plain @click="GoDetail">View more &gt;&gt;</el-button>
                 </div>
                 <div class="colock pull-left">
                     <p>在前端的路上越走越远....</p>
@@ -97,23 +96,13 @@ export default {
         }
     },
     methods: {
-        initData() {
-            let url = '/api/getmd';
-            let param = {
-                name: 'zhangjunjie',
-                age: 14
-            };
-            let headers = new Headers({
-                'Content-Type': 'text/plain'
-            });
-            Util.get(url, param, headers).then((req) => {
-                // console.log(req);
-                this.article = req;
+        GoDetail() {
+            this.$router.push({
+                name: 'blog'
             });
         }
     },
     mounted() {
-        // this.initData();
         this.$nextTick(() => {
             InitTime(26, 24, 16, 26, 3, this.starttime);
             // Carousel.init('carousel');
@@ -133,20 +122,6 @@ export default {
     // height: 3000px;
     background: #fff;
     margin-top: -60px;
-    .markdown-body {
-        box-sizing: border-box;
-        min-width: 200px;
-        max-width: 980px;
-        margin: 0 auto;
-        padding: 45px;
-    }
-
-    @media (max-width: 767px) {
-        .markdown-body {
-            padding: 15px;
-        }
-    }
-
     header {
         margin-top: 50px;
         height: 450px;
@@ -159,7 +134,6 @@ export default {
             text-align: center;
         }
     }
-
     .blob {
         padding: 60px;
         .el-col {
