@@ -75,6 +75,9 @@ export default {
             margin-right: 10px;
         }
     }
+    .el-aside {
+        padding: 20px 0;
+    }
 }
 .articleItem {
     width: 100%;

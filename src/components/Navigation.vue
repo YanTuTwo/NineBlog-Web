@@ -13,15 +13,7 @@ export default {
     data() {
         return {
             scrollTop: '',
-            isfullPage: false,
-            navigation: {
-                home: '首页',
-                blog: '博客',
-                resource: '资源',
-                reading: '读书',
-                life: '生活',
-                about: '关于'
-            }
+            isfullPage: false
         };
     },
     watch: {},
@@ -39,6 +31,16 @@ export default {
                 this.isfullPage = false;
             }
         }
+    },
+    beforeMount() {
+        this.navigation = {
+            home: '首页',
+            blog: '博客',
+            resource: '资源',
+            reading: '读书',
+            life: '生活',
+            about: '关于'
+        };
     },
     mounted() {
         this.$nextTick(() => {

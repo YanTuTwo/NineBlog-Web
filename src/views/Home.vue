@@ -13,9 +13,9 @@
             <el-row  :gutter="40">
                 <el-col :span="index == 0 || index == 3 ? 8 : 16" v-for="(o, index) in 4" :key="o">
                     <el-card :body-style="{ padding: '0px' }">
-                        <img v-lazy="'http://localhost:3000/static/images/'+index+'.jpg'" class="image" style="width:100%;height:250px;display:block">
+                        <img v-lazy="'http://193.112.95.221:9999/images/'+index+'.jpg'" class="image" style="width:100%;height:250px;display:block">
                         <div style="padding: 14px;">
-                            <h4>第一次搭建博客有感</h4>
+                            <h4>ytttttt有感</h4>
                             <p class="tip">一个有那么点爱摄影的前端打字员，为了克制自己的懒惰而建立的一个个人网站。如果你有点兴趣的话，你随便看~</p>
                         </div>
                     </el-card>

@@ -12,8 +12,8 @@ module.exports = {
         'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0, // 生产环境禁止使用debugger
         'no-undef': 2, // 不能有未定义的变量
         'no-extra-boolean-cast': 0, // 禁止不必要的bool转换
-        semi: [2, 'always'], // 语句强制分号结尾
-        indent: [2, 4, { SwitchCase: 1 }], // 缩进风格
+        'semi': [2, 'always'], // 语句强制分号结尾
+        'indent': [2, 4, { SwitchCase: 1 }], // 缩进风格
         'space-before-function-paren': 0, // 函数定义时括号前面要不要有空格
         'arrow-parens': 0, // =>的前/后括号
         'generator-star-spacing': 0, // 生成器函数*的前后空格

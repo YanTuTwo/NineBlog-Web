@@ -13,7 +13,7 @@
     </div>
 </template>
 <script>
-import Util from '@/util';
+import Util from 'Util';
 import ArticleSort from '@/components/ArticleSort';
 import Recommend from '@/components/Recommend';
 export default {
@@ -45,7 +45,6 @@ export default {
         }
     },
     mounted() {
-        console.log(this.$route.query);
         this.initData();
     },
     destroyed() {}

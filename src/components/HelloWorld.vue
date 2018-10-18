@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import Util from '@/util';
 export default {
     name: 'HelloWorld',
     data() {
