@@ -34,7 +34,7 @@
         </div>
         <div class="photography">
             <div class="pageCenter">
-               
+               <div style="text-align: center;color:#fff;">开发中....</div>
             </div>
         </div>
         <div class="resource">
@@ -221,17 +221,17 @@ export default {
         // -moz-filter: blur(2px);
         // -ms-filter: blur(2px);
         // filter: blur(2px);
-        &::after {
-            position: absolute;
-            top: 0;
-            left: 0;
-            content: '';
-            background-color: #000;
-            opacity: 0.8;
-            z-index: 1;
-            width: 100%;
-            height: 100%;
-        }
+        // &::after {
+        //     position: absolute;
+        //     top: 0;
+        //     left: 0;
+        //     content: '';
+        //     background-color: #000;
+        //     opacity: 0.8;
+        //     z-index: 1;
+        //     width: 100%;
+        //     height: 100%;
+        // }
     }
     .resource {
         .slider {

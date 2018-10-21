@@ -530,7 +530,13 @@
   margin-top: 0;
   margin-bottom: 0;
 }
+.markdown-body ul li{
+    list-style: disc;
+}
 
+.markdown-body ol li{
+    list-style: decimal;
+}
 .markdown-body li {
   word-wrap: break-all;
 }

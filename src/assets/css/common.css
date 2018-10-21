@@ -4,7 +4,7 @@ header,footer,section,article,aside,nav,hgroup,address,figure,figcaption,menu,de
 table{border-collapse:collapse;border-spacing:0;}
 caption,th{text-align:left;font-weight:normal;}
 html,body,fieldset,img,iframe,abbr{border:0;}
-i,cite,em,var,address,dfn{font-style:normal;}
+/* i,cite,em,var,address,dfn{font-style:normal;} */
 [hidefocus],summary{outline:0;}
 li{list-style:none;}
 sup,sub{font-size:83%;}

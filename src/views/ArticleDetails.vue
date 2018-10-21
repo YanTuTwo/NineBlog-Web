@@ -54,6 +54,9 @@ export default {
 @import '../assets/css/github.css';
 #articleDetails {
     background: #fff;
+    .el-aside {
+        padding-top: 20px;
+    }
 }
 .markdown-body {
     box-sizing: border-box;
