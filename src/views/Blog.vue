@@ -54,7 +54,6 @@ export default {
             }, 3000);
         },
         GoArticleDetails(id) {
-            console.log('dianji');
             this.$router.push({
                 name: 'articleDetails',
                 query: { articleId: id }

@@ -7,7 +7,10 @@
         </header>
         <div class="pageCenter blob">
             <div class="blobhead clearfix">
-                <div class="myname">Nine</div>
+                <div class="myname">
+                    <el-progress type="circle" :percentage="percentage" :show-text="false" :width="140"></el-progress>
+                    <span @mousedown="onMouseDown" @mouseup="percentage=0" @mouseout="percentage=0">Nine</span>
+                </div>
                 <div class="introduction">一个有那么点爱摄影的前端打字员，为了克制自己的懒惰而建立的一个个人网站。<br>如果你有点兴趣的话，你随便看~</div>
             </div> 
             <el-row  :gutter="40">
@@ -61,18 +64,24 @@
         <div class="readbook">
         </div>
         <div class="aboutme"></div>
+        <Login v-if="showlogin"></Login>
     </div>
 </template>
 <script>
 import InitTime from '../plugins/time';
+import Login from '@/components/Login';
 // import Carousel from '../plugins/carousel';
 export default {
     data() {
         return {
-            article: ''
+            article: '',
+            percentage: 0,
+            showlogin: false
         };
     },
-    components: {},
+    components: {
+        Login: Login
+    },
     computed: {
         starttime() {
             let starttime = {};
@@ -100,6 +109,20 @@ export default {
             this.$router.push({
                 name: 'blog'
             });
+        },
+        onMouseDown() {
+            this.percentage = 100;
+            if (this.downTimer) clearTimeout(this.downTimer);
+            this.downTimer = setTimeout(() => {
+                if (this.percentage === 100) {
+                    clearTimeout(this.downTimer);
+                    console.log('1秒后触发');
+                    this.showlogin = true;
+                }
+            }, 1000);
+        },
+        onMouseUp() {
+            this.percentage = 0;
         }
     },
     mounted() {
@@ -161,14 +184,28 @@ export default {
             text-align: center;
             line-height: 80px;
             font-weight: 700;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             .myname {
+                position: relative;
                 float: left;
                 font-size: 50px;
                 height: 80px;
                 width: 35%;
                 color: #241e20;
                 border-right: 2px solid #ccc;
+                .el-progress {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+                span {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    cursor: pointer;
+                }
             }
             .introduction {
                 width: 64%;
