@@ -64,7 +64,7 @@
         <div class="readbook">
         </div>
         <div class="aboutme"></div>
-        <Login v-if="showlogin"></Login>
+        <Login v-if="showlogin" v-on:cancelBtn="cancelBtn"></Login>
     </div>
 </template>
 <script>
@@ -123,6 +123,9 @@ export default {
         },
         onMouseUp() {
             this.percentage = 0;
+        },
+        cancelBtn() {
+            this.showlogin = false;
         }
     },
     mounted() {

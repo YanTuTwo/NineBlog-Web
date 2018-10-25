@@ -1,45 +1,38 @@
 <template>
     <div id="login">
-        <el-dialog title="收货地址" :visible.sync="dialogFormVisible">
-        <el-form :model="form">
-            <el-form-item label="活动名称" :label-width="formLabelWidth">
-            <el-input v-model="form.name" autocomplete="off"></el-input>
-            </el-form-item>
-            <el-form-item label="活动区域" :label-width="formLabelWidth">
-            <el-select v-model="form.region" placeholder="请选择活动区域">
-                <el-option label="区域一" value="shanghai"></el-option>
-                <el-option label="区域二" value="beijing"></el-option>
-            </el-select>
-            </el-form-item>
-        </el-form>
-        <div slot="footer" class="dialog-footer">
-            <el-button @click="dialogFormVisible = false">取 消</el-button>
-            <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
-        </div>
+        <el-dialog title="Login" :visible="true" center :show-close='false' width='30%'>
+            <el-form :model="form">
+                <el-form-item label="UserName：" :label-width="formLabelWidth">
+                    <el-input v-model="form.name" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="PassWord：" :label-width="formLabelWidth">
+                    <el-input v-model="form.password" auto-complete="off" type="password"></el-input>
+                </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click="$emit('cancelBtn')">取 消</el-button>
+                <el-button type="primary" @click="loginBtn">确 定</el-button>
+            </div>
         </el-dialog>
     </div>
 </template>
 <script>
 export default {
-    props: [],
     data() {
         return {
-            dialogFormVisible: true,
-            formLabelWidth: '120px',
+            formLabelWidth: '100px',
             form: {
-                name: '',
-                region: '',
-                date1: '',
-                date2: '',
-                delivery: false,
-                type: [],
-                resource: '',
-                desc: ''
+                name: 'admin',
+                password: '123456'
             }
         };
     },
     components: {},
-    methods: {},
+    methods: {
+        loginBtn() {
+            console.log('login');
+        }
+    },
     mounted() {},
     destroyed() {}
 };
