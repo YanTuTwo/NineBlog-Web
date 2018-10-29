@@ -1,11 +1,14 @@
 <template>
     <div id="navgation">
-        <nav class="fullPage" :class="navClass">
+        <nav class="fullPage hidden-xs-and-down" :class="navClass">
             <ul class="clearfix">
                 <li v-for="(item,key) in navigation" :key="key"><router-link :to="key">{{item}}</router-link></li>
             </ul>
         </nav>
-        
+        <nav :class="navClass" class="clearfix fullPage hidden-xs-and-up">
+            <div class="logoName">Nine</div>
+            <div class="menu"><span class="el-icon-menu"></span></div>
+        </nav>
     </div>
 </template>
 <script>
@@ -57,7 +60,6 @@ export default {
         position: fixed;
         top: 0;
         left: 0;
-        height: 52px;
         background: #33363b;
         z-index: 999;
         ul {
@@ -85,9 +87,34 @@ export default {
                 }
             }
         }
+        .logoName {
+            cursor: pointer;
+            float: left;
+            line-height: 42px;
+            font-size: 26px;
+            color: #fff;
+            padding-left: 20px;
+            font-family: Comic Sans MS;
+        }
+        .menu {
+            float: right;
+            span {
+                line-height: 42px;
+                font-size: 26px;
+                color: #fff;
+                padding: 0 10px;
+                cursor: pointer;
+            }
+        }
         &.navTop {
             border-bottom: 1px solid #acacac;
             box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.072);
+        }
+        &.hidden-xs-and-down {
+            height: 52px;
+        }
+        &.hidden-xs-and-up {
+            height: 42px;
         }
     }
 
