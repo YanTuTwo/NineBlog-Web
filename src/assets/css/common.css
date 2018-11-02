@@ -19,7 +19,7 @@ del,ins,u,s,a,a:hover{text-decoration:none;}
 body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family:'Open Sans',"HelveticaNeue", "Helvetica Neue", Helvetica, Arial,sans-serif;
 }
-body{background: #f8f8fd;}
+body{background: #f8f8fd;overflow-x: hidden;}
 a{color:#333}
 a:hover, a:focus, a:active{text-decoration:none;}
 a, button, div, em, i, input,textarea , select, li, p, section, span, ul ,form{

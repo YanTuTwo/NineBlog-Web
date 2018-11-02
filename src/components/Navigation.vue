@@ -7,8 +7,17 @@
         </nav>
         <nav :class="navClass" class="clearfix fullPage hidden-xs-and-up">
             <div class="logoName">Nine</div>
-            <div class="menu"><span class="el-icon-menu"></span></div>
+            <div class="menu" @click="isShowMenu = true"><span class="el-icon-menu"></span></div>
         </nav>
+        <transition name="slide-fade">
+            <div class="phoneMenu" v-if="isShowMenu">
+                <span class="el-icon-close" @click="isShowMenu = false"></span>'
+                <div v-for="(item,key) in navigation" :key="key">
+                    <router-link :to="key" :class="{'active':$route.name === key }">{{item}}</router-link>
+                </div>
+            </div>
+        </transition>
+        
     </div>
 </template>
 <script>
@@ -16,10 +25,25 @@ export default {
     data() {
         return {
             scrollTop: '',
-            isfullPage: false
+            isfullPage: false,
+            isShowMenu: false
         };
     },
-    watch: {},
+    watch: {
+        isShowMenu(val) {
+            if (val) {
+                document.getElementsByTagName('body')[0].style.overflowY =
+                    'hidden';
+            } else {
+                document.getElementsByTagName('body')[0].style.overflowY =
+                    'auto';
+            }
+        },
+        $route(val) {
+            console.log(val);
+            this.isShowMenu = false;
+        }
+    },
     computed: {
         navClass() {
             return this.isfullPage ? 'navTop' : '';
@@ -55,6 +79,9 @@ export default {
 </script>
 <style lang="scss" scoped>
 #navgation {
+    .active {
+        color: #fff !important;
+    }
     nav.fullPage {
         width: 100%;
         position: fixed;
@@ -101,7 +128,7 @@ export default {
             span {
                 line-height: 42px;
                 font-size: 26px;
-                color: #fff;
+                color: #7f7f7f;
                 padding: 0 10px;
                 cursor: pointer;
             }
@@ -141,5 +168,50 @@ export default {
     li:hover ~ li::before {
         left: 0;
     }
+    .phoneMenu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        overflow: hidden;
+        z-index: 999;
+        box-sizing: border-box;
+        padding: 20%;
+        span {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            color: #7f7f7f;
+        }
+        div {
+            text-align: center;
+            width: 100%;
+            padding: 10% 0;
+            border-bottom: 2px solid #7f7f7f;
+            a {
+                line-height: 30px;
+                color: #7f7f7f;
+                font-size: 30px;
+            }
+        }
+    }
+}
+// 过渡动画
+.slide-fade-enter-active {
+    transition: all 0.5s ease;
+}
+.slide-fade-leave-active {
+    transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active for below version 2.1.8 */ {
+    transform: translateY(-100%) translateX(100%);
+    opacity: 0;
+}
+.slide-fade-leave-to {
+    transform: translateY(100%) translateX(-100%);
 }
 </style>

@@ -5,7 +5,7 @@
                 <P>你有多自律，就有多自由。</P>
             </div>
         </header>
-        <div class="pageCenter blob">
+        <div class="pageCenter blob hidden-xs-and-down">
             <div class="blobhead clearfix">
                 <div class="myname">
                     <el-progress type="circle" :percentage="percentage" :show-text="false" :width="140"></el-progress>
@@ -24,7 +24,7 @@
                     </el-card>
                 </el-col>
             </el-row>
-            <div class="blobmore clearfix">
+            <div class="blobmore clearfix" >
                 <div class="morebtn pull-left">
                     <p>更多文章等待着你来探讨<span>喔~</span></p>
                     <el-button type="primary" plain @click="GoDetail">View more &gt;&gt;</el-button>

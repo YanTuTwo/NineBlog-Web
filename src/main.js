@@ -5,6 +5,9 @@ import store from './store';
 import './assets/css/common.css';
 import './plugins/element.js';
 import VueLazyload from 'vue-lazyload';
+import mavonEditor from 'mavon-editor';
+import 'mavon-editor/dist/css/index.css';
+Vue.use(mavonEditor);
 
 Vue.config.productionTip = false;
 
