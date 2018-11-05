@@ -32,7 +32,8 @@ function initTime(textWid, fontSize, numWidth, numHeight, lineWidth, starttime) 
 	backCtx.textAlign = 'center';
 	backCtx.textBaseline = 'middle';
 	backCtx.font = fontSize + 'px sans-serif, "黑体"';
-
+	backCtx.lineWidth = frontCtx.lineWidth = lineWidth;
+	backCtx.fillStyle = color;
 	var ready = false;
 	var cache = {};
 
@@ -175,8 +176,8 @@ function initTime(textWid, fontSize, numWidth, numHeight, lineWidth, starttime) 
 
 	function readyForDraw(timeObj, startIndex) {
 		backCtx.clearRect(0, 0, back.width, back.height);
-		backCtx.lineWidth = frontCtx.lineWidth = lineWidth;
-		backCtx.fillStyle = color;
+		// backCtx.lineWidth = frontCtx.lineWidth = lineWidth;
+		// backCtx.fillStyle = color;
 
 		var startX = 0;
 		var a = halfTextWid - halfNumWidth;
@@ -289,7 +290,6 @@ function initTime(textWid, fontSize, numWidth, numHeight, lineWidth, starttime) 
 	var time = 0;
 	function animate() {
 		frontCtx.clearRect(0, 0, front.width, front.height);
-
 		frontCtx.beginPath();
 		Object.keys(cache).forEach(function (key) {
 			cache[key].forEach(function (line) {
@@ -303,11 +303,10 @@ function initTime(textWid, fontSize, numWidth, numHeight, lineWidth, starttime) 
 			updateTime();
 			time = newTime;
 		}
-
 		RAF(animate);
 	}
 
-	window.RAF = (function () {
+	var RAF = (function () {
 		return (
 			window.requestAnimationFrame ||
 			window.webkitRequestAnimationFrame ||
