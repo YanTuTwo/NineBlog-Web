@@ -46,6 +46,8 @@ export default {
             this.frontCtx.strokeStyle = this.COLOR;
             this.frontCtx.lineCap = 'round';
             this.frontCtx.lineJoin = 'round';
+
+            
             this.backCtx.textAlign = 'center';
             this.backCtx.textBaseline = 'middle';
         },

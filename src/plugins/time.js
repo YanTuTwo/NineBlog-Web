@@ -1,4 +1,5 @@
 /* eslint-disable */
+//26, 24, 16, 26, 3
 function initTime(textWid, fontSize, numWidth, numHeight, lineWidth, starttime) {
 	window.timeObj = starttime;
 	var time = document.getElementById('time');
@@ -238,6 +239,7 @@ function initTime(textWid, fontSize, numWidth, numHeight, lineWidth, starttime) 
 		}
 
 		if (!ready || startIndex !== latestIndex) {
+			console.log('ddddd');
 			readyForDraw(timeObj, startIndex);
 			ready = true;
 		}
