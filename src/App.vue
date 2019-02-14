@@ -47,7 +47,7 @@ export default {
         }
     }
     .container {
-        padding-top: 50px;
+        padding-top: 40px;
     }
     .fourAndFour {
         width: 100%;

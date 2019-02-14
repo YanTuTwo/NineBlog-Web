@@ -62,11 +62,12 @@ export default {
     beforeMount() {
         this.navigation = {
             home: '首页',
+            notes: '笔记',
             blog: '博客',
-            resource: '资源',
-            reading: '读书',
-            life: '生活',
-            about: '关于'
+            resource: '资源'
+            // reading: '读书',
+            // life: '生活',
+            // about: '关于'
         };
     },
     mounted() {
@@ -107,7 +108,7 @@ export default {
                 transition: 0.2s all linear;
                 cursor: pointer;
                 a {
-                    padding: 10px 15px;
+                    padding: 5px 15px;
                     color: #fff;
                     display: inline-block;
                     text-align: center;
@@ -138,7 +139,7 @@ export default {
             box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.072);
         }
         &.hidden-xs-and-down {
-            height: 52px;
+            height: 42px;
         }
         &.hidden-xs-and-up {
             height: 42px;
@@ -212,6 +213,6 @@ export default {
     opacity: 0;
 }
 .slide-fade-leave-to {
-    transform: translateY(100%) translateX(-100%);
+    transform: translateY(-100%);
 }
 </style>

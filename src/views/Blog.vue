@@ -13,7 +13,7 @@
                 </el-card>
                 <div v-if="moreBtn" class="moreBtn" @click="loadMore"><span :class="loadMoreBten"></span>加载更多</div>
             </el-main>
-            <el-aside width="280px">
+            <el-aside width="280px" class="hidden-xs-and-down">
                 <v-ArticleSort></v-ArticleSort>   
                 <v-Recommend></v-Recommend>
             </el-aside>

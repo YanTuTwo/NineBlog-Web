@@ -4,7 +4,7 @@
             <el-main>
                 <div class="markdown-body" v-html="article"></div>
             </el-main>
-            <el-aside width="280px">
+            <el-aside width="280px" class="hidden-xs-and-down">
                 <v-ArticleSort></v-ArticleSort>   
                 <v-Recommend></v-Recommend>
             </el-aside>

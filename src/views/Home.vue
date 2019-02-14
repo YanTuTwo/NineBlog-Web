@@ -35,11 +35,11 @@
                 </div>
             </div>
         </div>
-        <div class="photography">
+        <!-- <div class="photography">
             <div class="pageCenter">
                <div style="text-align: center;color:#fff;">开发中....</div>
             </div>
-        </div>
+        </div> -->
         <div class="resource">
             <div class="pageCenter">
                <!-- <div class="slider" id="carousel">
@@ -140,7 +140,7 @@ export default {
 <style lang="scss" scoped>
 #time {
     position: relative;
-    margin: 0 80px;
+    margin: 0 auto;
     height: 90px;
 }
 #index {
@@ -238,7 +238,7 @@ export default {
                 }
             }
             .colock {
-                width: 59%;
+                width: 500px;
                 height: 100%;
                 text-align: center;
                 p {

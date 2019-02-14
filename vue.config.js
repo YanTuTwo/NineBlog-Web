@@ -30,8 +30,8 @@ module.exports = {
         port: 8888,
         proxy: {
             '/api': {
-                // target: 'http://193.112.95.221:9999',
-                target: 'http://localhost:3000',
+                target: 'http://193.112.95.221:9999',
+                // target: 'http://localhost:3000',
                 ws: true,
                 changeOrigin: true,
                 pathRewrite: {
