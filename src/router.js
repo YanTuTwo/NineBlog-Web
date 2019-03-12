@@ -5,6 +5,7 @@ import Home from './views/Home.vue';
 import About from './views/About.vue';
 import Blog from './views/Blog.vue';
 import ArticleDetails from './views/ArticleDetails.vue';
+import Notes from './views/Notes.vue';
 
 Vue.use(Router);
 
@@ -29,6 +30,11 @@ export default new Router({
             path: '/blog',
             name: 'blog',
             component: Blog
+        },
+        {
+            path: '/notes',
+            name: 'notes',
+            component: Notes
         },
         {
             path: '/articleDetails',

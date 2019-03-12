@@ -32,11 +32,9 @@ export default {
     watch: {
         isShowMenu(val) {
             if (val) {
-                document.getElementsByTagName('body')[0].style.overflowY =
-                    'hidden';
+                document.getElementsByTagName('body')[0].style.overflowY = 'hidden';
             } else {
-                document.getElementsByTagName('body')[0].style.overflowY =
-                    'auto';
+                document.getElementsByTagName('body')[0].style.overflowY = 'auto';
             }
         },
         $route(val) {
@@ -62,12 +60,12 @@ export default {
     beforeMount() {
         this.navigation = {
             home: '首页',
-            notes: '笔记',
+            notes: '速记',
             blog: '博客',
-            resource: '资源'
+            resource: '资源',
+            about: '关于'
             // reading: '读书',
             // life: '生活',
-            // about: '关于'
         };
     },
     mounted() {
