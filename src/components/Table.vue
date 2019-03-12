@@ -107,6 +107,7 @@ export default {
             });
         },
         scrollBody() {
+            // 绑定滚动条
             document.getElementById('table-header').scrollLeft = document.getElementById('table-body').scrollLeft;
         },
         getScrollbarWidth() {
