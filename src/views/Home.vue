@@ -11,7 +11,7 @@
                     <el-progress type="circle" :percentage="percentage" :show-text="false" :width="140"></el-progress>
                     <span @mousedown="onMouseDown" @mouseup="percentage=0" @mouseout="percentage=0">Nine</span>
                 </div>
-                <div class="introduction">一个有那么点爱摄影的前端打字员，为了克制自己的懒惰而建立的一个个人网站。<br>如果你有点兴趣的话，你随便看~</div>
+                <div class="introduction">一个前端打字员，为了克制自己的懒惰而建立的一个个人网站。<br>如果你有点兴趣的话，你随便看~</div>
             </div> 
             <el-row  :gutter="40">
                 <el-col :span="index == 0 || index == 3 ? 8 : 16" v-for="(o, index) in 4" :key="o">
@@ -19,16 +19,16 @@
                         <img v-lazy="'http://193.112.95.221:9999/images/'+index+'.jpg'" class="image" style="width:100%;max-height:250px;display:block">
                         <div style="padding: 14px;">
                             <h4>ytttttt有感</h4>
-                            <p class="tip">一个有那么点爱摄影的前端打字员，为了克制自己的懒惰而建立的一个个人网站。如果你有点兴趣的话，你随便看~</p>
+                            <p class="tip">一个前端打字员，为了克制自己的懒惰而建立的一个个人网站。如果你有点兴趣的话，你随便看~</p>
                         </div>
                     </el-card>
                 </el-col>
             </el-row>
             <div class="blobmore clearfix" >
-                <div class="morebtn pull-left">
+                <!-- <div class="morebtn pull-left">
                     <p>更多文章等待着你来探讨<span>喔~</span></p>
                     <el-button type="primary" plain @click="GoDetail">View more &gt;&gt;</el-button>
-                </div>
+                </div> -->
                 <div class="colock pull-left">
                     <p>在前端的路上越走越远....</p>
                     <div id="time"></div>
@@ -85,19 +85,10 @@ export default {
     computed: {
         starttime() {
             let starttime = {};
-            let overdate =
-                new Date().getTime() -
-                new Date('2017-07-14 08:53:00').getTime();
+            let overdate = new Date().getTime() - new Date('2017-07-14 08:53:00').getTime();
             starttime.year = parseInt(overdate / 1000 / 60 / 60 / 24 / 365);
-            starttime.month = parseInt(
-                (overdate % (1000 * 60 * 60 * 24 * 365)) /
-                    (1000 * 60 * 60 * 24 * 30)
-            );
-            starttime.day = parseInt(
-                ((overdate % (1000 * 60 * 60 * 24 * 365)) %
-                    (1000 * 60 * 60 * 24 * 30)) /
-                    (1000 * 60 * 60 * 24)
-            );
+            starttime.month = parseInt((overdate % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+            starttime.day = parseInt(((overdate % (1000 * 60 * 60 * 24 * 365)) % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
             starttime.hour = parseInt(((overdate / 1000) % (3600 * 24)) / 3600);
             starttime.minute = parseInt(((overdate / 1000) % 3600) / 60);
             starttime.second = parseInt((overdate / 1000) % 60);
@@ -142,6 +133,7 @@ export default {
     position: relative;
     margin: 0 auto;
     height: 90px;
+    width: 500px;
 }
 #index {
     width: 100%;
@@ -223,7 +215,7 @@ export default {
         .blobmore {
             height: 120px;
             .morebtn {
-                width: 40%;
+                width: 36%;
                 height: 100%;
                 padding: 15px 50px;
                 text-align: center;
@@ -238,7 +230,7 @@ export default {
                 }
             }
             .colock {
-                width: 500px;
+                width: 100%;
                 height: 100%;
                 text-align: center;
                 p {

@@ -11,7 +11,7 @@
                 <el-main>
                     <dl v-for="(value, key) in noteList" :key="key">
                         <dt>{{key}}</dt>
-                        <dd v-for="item in value" :key="item.id"><i class="el-icon-star-on"></i>{{item.createTime}}<span>{{item.title}}</span></dd>
+                        <dd v-for="item in value" :key="item.id" :title="item.title"><i class="el-icon-star-on"></i>{{item.title}}<span>{{item.createTime}}</span></dd>
                     </dl>
                 </el-main>
             </el-container>    
@@ -29,15 +29,15 @@ export default {
     data() {
         return {
             checkAll: false,
-            checkedCities: ['上海', '北京'],
-            cities: ['上海', '北京', '广州', '深圳', '年', '月', '日', '时', '分', '秒'],
+            checkedCities: ['js'],
+            cities: ['html', 'js', 'css', 'node', 'vue', 'react', 'nginx', 'geoserver', 'openlayer'],
             noteList: {
                 '2019': [
                     {
                         id: 1,
                         year: '2019',
                         createTime: '2019-02-21 23:26:22',
-                        title: 'Geoserver的搭建',
+                        title: 'Geoserver的搭建Geoserver的搭建Geoserver的搭建Geoserver的搭建Geoserver的搭建Geoserver的搭建Geoserver的搭建Geoserver的搭建',
                         content: '哈哈哈'
                     },
                     {
@@ -99,7 +99,7 @@ export default {
 @import '../assets/css/github.css';
 #Notes {
     background: #fff;
-    padding: 10px;
+    padding: 10px 0;
     .el-header {
         height: auto;
         .el-checkbox {
@@ -115,7 +115,7 @@ export default {
         dl {
             dt {
                 color: #999;
-                font-size: 30px;
+                font-size: 26px;
                 font-weight: bold;
                 margin-bottom: 10px;
             }
@@ -123,14 +123,24 @@ export default {
                 padding-left: 30px;
                 color: #666;
                 line-height: 30px;
+                font-size: 16px;
                 height: 30px;
+                font-weight: bold;
+                padding-right: 120px;
+                position: relative;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
                 cursor: pointer;
                 i {
                     margin-right: 10px;
                 }
                 span {
-                    font-weight: bold;
-                    margin-left: 10px;
+                    position: absolute;
+                    right: 0;
+                    font-weight: normal;
+                    // margin-left: 10px;
+                    font-size: 12px;
                 }
                 &:hover {
                     color: #409eff;

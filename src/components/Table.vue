@@ -1,10 +1,11 @@
 <template>
     <div id="table" ref="tablewrap">
-        <div class="tablewrap" :style="{ width: tableWidth + 'px' }">
-            <div class="table-header" id="table-header">
+        <div class="tablewrap" id="tablewrap">
+            <div class="table-header" id="table-header" ref="table-header">
                 <table cellspacing="0" cellpadding="0" border="0" :style="defaultHeaderWidth">
                     <colgroup>
                         <col v-for="colitem in columns" :key="colitem.key" :width="colitem.width ? colitem.width : colWidth">
+                        <col v-if="scrollY" :width="scrollbarWidth">
                     </colgroup>
                     <thead>
                         <tr>
@@ -35,7 +36,8 @@ export default {
     data() {
         return {
             tableWidth: 0,
-            bodyHeight: 0,
+            tableHeight: 0,
+            headerHeight: 0,
             scrollY: false,
             scrollX: false,
             scrollbarWidth: 0
@@ -59,7 +61,11 @@ export default {
                     len--;
                 }
             });
-            return parseInt((this.tableWidth - countWith) / len);
+            let colWidth = parseInt((this.tableWidth - countWith) / len);
+            if (this.scrollY) {
+                colWidth = parseInt((this.tableWidth - countWith - this.scrollbarWidth) / len);
+            }
+            return colWidth > 0 ? colWidth : 0;
         },
         defaultBodyWidth() {
             if (this.scrollX) {
@@ -82,7 +88,7 @@ export default {
         defaultHeight() {
             if (this.scrollY) {
                 return {
-                    height: this.bodyHeight + 'px'
+                    height: this.tableHeight - this.headerHeight + 'px'
                 };
             } else {
                 return {};
@@ -93,17 +99,30 @@ export default {
         initDom() {
             this.$nextTick(() => {
                 if (!!this.$refs.tablewrap.getAttribute('width')) {
-                    this.scrollX = true;
-                    this.tableWidth = this.$refs.tablewrap.getAttribute('width');
+                    this.tableWidth = parseInt(this.$refs.tablewrap.getAttribute('width'));
+                    document.getElementById('tablewrap').style.width = this.tableWidth + 'px';
                 } else {
                     this.tableWidth = this.$refs.tablewrap.offsetWidth;
                 }
-                if (!!this.$refs.tablewrap.getAttribute('height')) {
-                    this.scrollY = true;
-                    this.bodyHeight = this.$refs.tablewrap.getAttribute('height');
-                } else {
-                    this.bodyHeight = this.$refs.tablewrap.offsetHeight;
-                }
+                let itemWidth = 0;
+                this.columns.forEach((ele) => {
+                    if (!!ele.width) {
+                        itemWidth += ele.width;
+                    }
+                });
+                if (itemWidth > this.tableWidth) this.scrollX = true;
+                this.$nextTick(() => {
+                    if (!!this.$refs.tablewrap.getAttribute('height')) {
+                        // this.scrollY = true;
+                        this.tableHeight = parseInt(this.$refs.tablewrap.getAttribute('height'));
+                        document.getElementById('tablewrap').style.height = this.tableHeight + 'px';
+                    } else {
+                        this.tableHeight = this.$refs.tablewrap.offsetHeight;
+                    }
+                    this.headerHeight = document.getElementById('table-header').offsetHeight;
+                    let bodyContentHeight = document.getElementById('table-body').offsetHeight;
+                    if (bodyContentHeight > this.tableHeight - this.headerHeight) this.scrollY = true;
+                });
             });
         },
         scrollBody() {
@@ -137,15 +156,19 @@ export default {
 </script>
 <style lang="scss" scoped>
 #table {
-    width: 100%;
+    width: inherit;
+    height: 100%;
     table {
         table-layout: fixed;
     }
     .tablewrap {
+        width: inherit;
+        height: 100%;
         position: relative;
         border: 1px solid #dcdee2;
         border-bottom: 0;
         border-right: 0;
+        overflow: hidden;
         &::before {
             content: '';
             position: absolute;
